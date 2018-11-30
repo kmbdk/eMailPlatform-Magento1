@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <emailplatform translate="label" module="newsletter">
+            <class>separator-top</class>
+            <label>eMailPlatform Configuration</label>
+            <tab>customer</tab>
+            <sort_order>109</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <username translate="label comment">
+                            <label>API Username</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The username used in the XML API requests.</comment>
+                        </username>
+                        <token translate="label comment">
+                            <label>API token</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This token is what the user needs to include in their
+                                XML requests. If this token is not present in the XML request or
+                                does not match what is set here, the request will fail.
+                            </comment>
+                        </token>
+                        <listid translate="label comment">
+                            <label>List id</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>emailplatform/listids</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The eMailPlatform list id where customers will be
+                                added/removed
+                            </comment>
+                        </listid>
+                        <url translate="label comment">
+                            <label>API-RPC URL</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This is the path to eMailPlatform API and version
+                            </comment>
+                        </url>
+                    </fields>
+                </general>
+                <subscribe>
+                    <label>Subscribe options</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <opt-in translate="label comment">
+                            <label>Opt-in</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Set the Opt-in IP fields.</comment>
+                        </opt-in>
+                        <firstname_fieldid translate="label">
+                            <label>First Name Field</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>emailplatform/firstname</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Select field from eMailPlatform.</comment>
+                        </firstname_fieldid>
+                        <lastname_fieldid translate="label">
+                            <label>Last Name Field</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>emailplatform/lastname</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Select field from eMailPlatform.</comment>
+                        </lastname_fieldid>
+                        <double_optin translate="label">
+                            <label>Double optin</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>emailplatform/doubleoptin</source_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Flag to control whether a double opt-in confirmation
+                                message is sent
+                            </comment>
+                        </double_optin>
+                        <update_existing translate="label">
+                            <label>Update existing</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Flag to control whether a existing subscribers should be
+                                updated instead of throwing and error
+                            </comment>
+                        </update_existing>
+                        <add_mobile translate="label comment">
+                            <label>Mobile</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Should mobile be added in eMailPlatform as well?</comment>
+                        </add_mobile>
+                    </fields>
+                </subscribe>
+                <checkoutnewslettersubscription>
+                    <label>Checkout options</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>3</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Checkout status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>emailplatform/checkoutactive</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>´
+                                Activate subscription option on checkout page
+                            </comment>
+                        </active>
+                        <defaultchecked translate="label">
+                            <label>Checked as default</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>
+                                Should the checkbox be checked by default?
+                            </comment>
+                        </defaultchecked>
+                    </fields>
+                </checkoutnewslettersubscription>
+            </groups>
+        </emailplatform>
+    </sections>
+</config>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <EP_Emailplatform>
+            <active>true</active>
+            <codePool>community</codePool>
+        </EP_Emailplatform>
+    </modules>
+</config>
