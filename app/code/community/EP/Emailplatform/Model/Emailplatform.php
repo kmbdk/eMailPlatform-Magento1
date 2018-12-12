@@ -241,7 +241,7 @@ class EP_Emailplatform_Model_Emailplatform extends Varien_Object {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         // disable for security
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
 
         // execute post
         $result = curl_exec($ch);
@@ -269,7 +269,7 @@ class EP_Emailplatform_Model_Emailplatform extends Varien_Object {
             curl_setopt($ch, CURLOPT_POSTFIELDS, $encodedData);
             // disable for security
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
 
             // execute post
             $result = curl_exec($ch);

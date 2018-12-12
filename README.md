@@ -1,1 +1,0 @@
-# eMailPlatform-Magento1
