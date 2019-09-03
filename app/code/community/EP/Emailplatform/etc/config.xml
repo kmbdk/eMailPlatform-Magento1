@@ -99,7 +99,7 @@
         <emailplatform>
             <general>
                 <active>0</active>
-                <url>http://api.mailmailmail.net/v1.1</url>
+                <url>https://api.mailmailmail.net/v1.1</url>
                 <username>admin</username>
                 <token></token>
             </general>
