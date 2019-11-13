@@ -43,3 +43,8 @@
 /var/package/*
 !/var/package/*.xml
 
+app/code/community/EP/Emailplatform/Model/.DS_Store
+.DS_Store
+app/.DS_Store
+app/.DS_Store
+app/.DS_Store

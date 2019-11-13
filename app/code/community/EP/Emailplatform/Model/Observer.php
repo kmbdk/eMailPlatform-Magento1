@@ -39,9 +39,19 @@ class EP_Emailplatform_Model_Observer {
             $quote = $observer->getEvent()->getQuote();
             
             if ($quote->getBillingAddress() && Mage::app()->getRequest()->getParam('is_subscribed', false)) {
+                
                 $status = Mage::getModel('newsletter/subscriber')
                         ->setImportMode(true)
                         ->subscribe($quote->getBillingAddress()->getEmail(), $quote->getBillingAddress()->getTelephone(), $quote->getBillingAddress()->getFirstname(), $quote->getBillingAddress()->getLastname());
+            
+                
+            } elseif($quote->getBillingAddress() && Mage::app()->getRequest()->getParam('newsletter', false)) {
+                
+                $status = Mage::getModel('newsletter/subscriber')
+                        ->setImportMode(true)
+                        ->subscribe($quote->getBillingAddress()->getEmail(), $quote->getBillingAddress()->getTelephone(), $quote->getBillingAddress()->getFirstname(), $quote->getBillingAddress()->getLastname());
+            
+                
             }
             
         }

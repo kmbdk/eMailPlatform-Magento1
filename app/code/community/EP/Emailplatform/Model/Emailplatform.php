@@ -145,7 +145,7 @@ class EP_Emailplatform_Model_Emailplatform extends Varien_Object {
 
             $params = array(
                 'listid' => $listid,
-                'emailaddress' => $email->getEmail(),
+                'emailaddress' => $email,
                 'subscriberid' => false,
                 'skipcheck' => false,
                 'statid' => false
