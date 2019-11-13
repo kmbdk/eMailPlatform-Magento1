@@ -2,7 +2,7 @@
 
 class EP_Emailplatform_Model_Newsletter_Subscriber extends Mage_Newsletter_Model_Subscriber {
 
-    public function subscribe($email, $mobile, $firstname, $lastname) {
+    public function subscribe($email, $mobile = false, $firstname = '', $lastname = '') {
         $this->loadByEmail($email);
         $customer = Mage::getModel('customer/customer')
                 ->setWebsiteId(Mage::app()->getStore()->getWebsiteId())
