@@ -12,11 +12,11 @@ class EP_Emailplatform_Model_Emailplatform extends Varien_Object {
     public function EmailplatformAvailable() {
 
         $requestUri = Mage::app()->getRequest()->getRequestUri();
-
-        if ($this->getXMLGeneralConfig('active') == true && $this->getXMLGeneralConfig('username') != '' && $this->getXMLGeneralConfig('token') != '' && $this->getXMLGeneralConfig('listid') != '' && (strstr($requestUri, 'newsletter/') || strstr($requestUri, 'newsletter_subscriber/') || strstr($requestUri, 'customer/') || strstr($requestUri, 'eMailPlatform/index') || strstr($requestUri, 'checkout/onepage/'))) {
+        
+        if ($this->getXMLGeneralConfig('active') == true && $this->getXMLGeneralConfig('username') != '' && $this->getXMLGeneralConfig('token') != '' && $this->getXMLGeneralConfig('listid') != '' && (strstr($requestUri, 'newsletter/') || strstr($requestUri, 'newsletter_subscriber/') || strstr($requestUri, 'customer/') || strstr($requestUri, 'eMailPlatform/index') || strstr($requestUri, 'checkout'))) {
             return true;
         }
-
+        
         if (Mage::app()->getStore()->getId() == 0) {
             if ($this->getXMLGeneralConfig('active') != true)
                 Mage::getSingleton('adminhtml/session')->addError('eMailPlatform Configuration Error: eMailPlatform is innactive');
@@ -58,7 +58,7 @@ class EP_Emailplatform_Model_Emailplatform extends Varien_Object {
     }
 
     public function subscribe($email, $mobile = false, $firstname = '', $lastname = '') {
-
+        
         if (!$this->EmailplatformAvailable()) {
             return;
         }
@@ -69,6 +69,8 @@ class EP_Emailplatform_Model_Emailplatform extends Varien_Object {
         if ($email instanceof Mage_Customer_Model_Customer) {
             $email = $customer->getEmail();
         } 
+        
+        
 
         $api_url = Mage::getStoreConfig('emailplatform/general/url');
         $endpoint = '/Subscribers/AddSubscriberToList';

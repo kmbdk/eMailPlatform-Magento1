@@ -3,6 +3,7 @@
 class EP_Emailplatform_Model_Newsletter_Subscriber extends Mage_Newsletter_Model_Subscriber {
 
     public function subscribe($email, $mobile = false, $firstname = '', $lastname = '') {
+        
         $this->loadByEmail($email);
         $customer = Mage::getModel('customer/customer')
                 ->setWebsiteId(Mage::app()->getStore()->getWebsiteId())
@@ -45,7 +46,7 @@ class EP_Emailplatform_Model_Newsletter_Subscriber extends Mage_Newsletter_Model
         }
 
         $this->setIsStatusChanged(true);
-
+        
         try {
             $this->save();
             if (Mage::getStoreConfig(self::XML_PATH_CONFIRMATION_FLAG) == 1 && $this->getSubscriberStatus() == self::STATUS_NOT_ACTIVE) {
@@ -53,7 +54,7 @@ class EP_Emailplatform_Model_Newsletter_Subscriber extends Mage_Newsletter_Model
             } else {
                 $this->sendConfirmationSuccessEmail();
             }
-
+            
             Mage::getSingleton('emailplatform/emailplatform')->subscribe($email, $mobile, $firstname, $lastname);
 
             return $this->getStatus();
@@ -63,6 +64,7 @@ class EP_Emailplatform_Model_Newsletter_Subscriber extends Mage_Newsletter_Model
     }
 
     public function unsubscribe() {
+
         if ($this->hasCheckCode() && $this->getCode() != $this->getCheckCode()) {
             Mage::throwException(Mage::helper('newsletter')->__('Invalid subscription confirmation code'));
         }

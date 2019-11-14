@@ -29,6 +29,7 @@ class EP_Emailplatform_Model_Observer {
                 $observer->getTransport()->setHtml($html);
             }
         }
+        
     }
 
     public function subscribe($observer) {
@@ -44,15 +45,7 @@ class EP_Emailplatform_Model_Observer {
                         ->setImportMode(true)
                         ->subscribe($quote->getBillingAddress()->getEmail(), $quote->getBillingAddress()->getTelephone(), $quote->getBillingAddress()->getFirstname(), $quote->getBillingAddress()->getLastname());
             
-                
-            } elseif($quote->getBillingAddress() && Mage::app()->getRequest()->getParam('newsletter', false)) {
-                
-                $status = Mage::getModel('newsletter/subscriber')
-                        ->setImportMode(true)
-                        ->subscribe($quote->getBillingAddress()->getEmail(), $quote->getBillingAddress()->getTelephone(), $quote->getBillingAddress()->getFirstname(), $quote->getBillingAddress()->getLastname());
-            
-                
-            }
+            } 
             
         }
         
