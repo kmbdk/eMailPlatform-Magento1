@@ -27,7 +27,7 @@ class EP_Emailplatform_Model_Newsletter_Subscriber extends Mage_Newsletter_Model
             }
             $this->setSubscriberEmail($email);
         }
-
+        
         if ($customerSession->isLoggedIn()) {
             $this->setStoreId($customerSession->getCustomer()
                             ->getStoreId());
@@ -54,7 +54,7 @@ class EP_Emailplatform_Model_Newsletter_Subscriber extends Mage_Newsletter_Model
             } else {
                 $this->sendConfirmationSuccessEmail();
             }
-
+            
             Mage::getSingleton('emailplatform/emailplatform')->subscribe($email, $mobile, $firstname, $lastname);
 
             return $this->getStatus();

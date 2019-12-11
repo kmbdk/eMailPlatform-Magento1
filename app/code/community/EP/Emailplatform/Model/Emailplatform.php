@@ -13,7 +13,7 @@ class EP_Emailplatform_Model_Emailplatform extends Varien_Object {
 
         $requestUri = Mage::app()->getRequest()->getRequestUri();
         
-        if ($this->getXMLGeneralConfig('active') == true && $this->getXMLGeneralConfig('username') != '' && $this->getXMLGeneralConfig('token') != '' && $this->getXMLGeneralConfig('listid') != '' && (strstr($requestUri, 'newsletter') || strstr($requestUri, 'newsletter_subscriber') || strstr($requestUri, 'customer') || strstr($requestUri, 'eMailPlatform') || strstr($requestUri, 'checkout'))) {
+        if ($this->getXMLGeneralConfig('active') == true && $this->getXMLGeneralConfig('username') != '' && $this->getXMLGeneralConfig('token') != '' && $this->getXMLGeneralConfig('listid') != '') {
             return true;
         }
         
